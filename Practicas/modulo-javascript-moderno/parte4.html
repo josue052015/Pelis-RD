@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+
+    </head>
+    <body>
+       
+        <script>
+            //la programacion asincrona es poner a tu app de javascript a realizar otro proceso en lo que espera a otro. Ej: un gif de carga.
+            //vamos a hacer una funcion que haga una peticion http a un web api
+ function promesaejemplo(){
+     fetch('https://jsonplaceholder.typicode.com/todos/1')//el fetch es lo que nos permite hacer la peticion hacia un web api y el valor de retorno es una promesa. una promesa es un valor que va a estar disponible en el futuro
+     .then(Response => Response.json()) //eso lo que le dice es que cuando termine de ejecutar la primera ENTONCES ejecutame esto
+                                        //el response es para representar la respuesta de la peticion http, basicamenta ahi estamos diciendo que nos retorne el json de la respuesta de la peticion que hicimos
+
+      .catch(error => console.error("ha ocurrido un error"))   //esto lo hacemos en caso de que la promesa retorne un error                               
+      .then(json => console.log(json)); //como el then de arriba retorna una promesa(ya que es un valor que se ejecutara mas adelante) tuvimos que agregar otro que ejecute el codigo que mostrara el json                                  
+ }
+ promesaejemplo(); //ejecutamos la funcion
+
+ //............PODEMOS HACER ESTO MAS LEGIBLE CON ASYNC Y WAIT....................
+ async function promesaasincrona(){
+ try
+ {
+const respuesta = await fetch('https://jsonplaceholder.typicode.com/todos/1'); //el await lo que hace es que le dice que esa funcion llegara en un rato que se ponga a hacer otra cosa NOTA: el await solo funciona en funciones declaradas como asincronas
+const json = await respuesta.json();
+console.log("lo que se esperaba",json);
+ }
+ catch(ex)
+ {
+console.log("ha habido un problema");
+ }
+ }
+
+ promesaasincrona();
+        </script>
+    </body>
+</html>
