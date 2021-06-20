@@ -22,5 +22,13 @@ namespace apipeliculas.Repositorios
         {
             return _generos;
         }
+
+        //vamos a simular que este metodo se comunica asincronamente 
+        public async Task<Genero> obtenerPorId(int id)       //tenemos que llevar esto a la interfaz
+        {
+            //siempre que declaramos un metodo asincrono tenemos que hacer que su tipo de dato de retorno sea un task de algo, un task es un valor prometido
+            await Task.Delay(TimeSpan.FromSeconds(1));
+            return _generos.FirstOrDefault(x => x.id == id); 
+        }
     }
 }

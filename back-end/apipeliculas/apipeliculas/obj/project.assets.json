@@ -11831,11 +11831,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\repositorio_del_proyecto\\apipeliculas\\apipeliculas\\apipeliculas.csproj",
+      "projectUniqueName": "F:\\Pelis-RD\\back-end\\apipeliculas\\apipeliculas\\apipeliculas.csproj",
       "projectName": "apipeliculas",
-      "projectPath": "F:\\repositorio_del_proyecto\\apipeliculas\\apipeliculas\\apipeliculas.csproj",
+      "projectPath": "F:\\Pelis-RD\\back-end\\apipeliculas\\apipeliculas\\apipeliculas.csproj",
       "packagesPath": "C:\\Users\\RAYMER\\.nuget\\packages\\",
-      "outputPath": "F:\\repositorio_del_proyecto\\apipeliculas\\apipeliculas\\obj\\",
+      "outputPath": "F:\\Pelis-RD\\back-end\\apipeliculas\\apipeliculas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
