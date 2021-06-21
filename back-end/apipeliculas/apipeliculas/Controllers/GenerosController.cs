@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace apipeliculas.Controllers
 {
     [Route("api/generos")]
+    [ApiController]
     public class GenerosController : ControllerBase // esto lo hacemos para acceder a los metodos auxiliares
     {
         private readonly IRepositorios repo;
@@ -42,12 +43,12 @@ namespace apipeliculas.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post()
+        public ActionResult Post([FromBody] Genero Gender)
         {
             return NoContent();
         }
         [HttpPut]
-        public ActionResult Put()
+        public ActionResult Put([FromBody] Genero Gender)
         {
             return NoContent();
         }
