@@ -1,0 +1,14 @@
+F:\App-react\apipeliculas\obj\Debug\net5.0\apipeliculas.csprojAssemblyReference.cache
+F:\App-react\apipeliculas\obj\Debug\net5.0\apipeliculas.GeneratedMSBuildEditorConfig.editorconfig
+F:\App-react\apipeliculas\obj\Debug\net5.0\apipeliculas.AssemblyInfoInputs.cache
+F:\App-react\apipeliculas\obj\Debug\net5.0\apipeliculas.AssemblyInfo.cs
+F:\App-react\apipeliculas\obj\Debug\net5.0\apipeliculas.csproj.CoreCompileInputs.cache
+F:\App-react\apipeliculas\obj\Debug\net5.0\apipeliculas.MvcApplicationPartsAssemblyInfo.cs
+F:\App-react\apipeliculas\obj\Debug\net5.0\apipeliculas.MvcApplicationPartsAssemblyInfo.cache
+F:\Pelis-RD\back-end\apipeliculas\obj\Debug\net5.0\apipeliculas.csproj.AssemblyReference.cache
+F:\Pelis-RD\back-end\apipeliculas\obj\Debug\net5.0\apipeliculas.GeneratedMSBuildEditorConfig.editorconfig
+F:\Pelis-RD\back-end\apipeliculas\obj\Debug\net5.0\apipeliculas.AssemblyInfoInputs.cache
+F:\Pelis-RD\back-end\apipeliculas\obj\Debug\net5.0\apipeliculas.AssemblyInfo.cs
+F:\Pelis-RD\back-end\apipeliculas\obj\Debug\net5.0\apipeliculas.csproj.CoreCompileInputs.cache
+F:\Pelis-RD\back-end\apipeliculas\obj\Debug\net5.0\apipeliculas.MvcApplicationPartsAssemblyInfo.cs
+F:\Pelis-RD\back-end\apipeliculas\obj\Debug\net5.0\apipeliculas.MvcApplicationPartsAssemblyInfo.cache
