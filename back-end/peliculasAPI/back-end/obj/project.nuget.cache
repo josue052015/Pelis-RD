@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tcAx+Bic0hKA4pvg2j2xSSM3sc4h3oj9eQ0qRO1hvu8vP5GP6KdXtjMXwvqeF8sjMozvY9dwppNzcMg0PtKfPw==",
+  "dgSpecHash": "WOpyJ5czd2oNOkvdxdfSDiOPCsR+uRSvkyDme0j3eAKODHNyMdxPzXpKMdMeWYEwrO9mqKaP3k7mRa4a+8ZDag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\RAYMER\\Desktop\\gavilancurso\\React-y-ASP.NET-Core\\React 17 - ASP.NET Core 5\\Modulo 8 - HTTP\\Inicio\\peliculasAPI\\back-end\\PeliculasAPI.csproj",
+  "projectFilePath": "F:\\Pelis-RD\\back-end\\peliculasAPI\\back-end\\PeliculasAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\RAYMER\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0-rc.2.20475.17\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0-rc.2.20475.17.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
