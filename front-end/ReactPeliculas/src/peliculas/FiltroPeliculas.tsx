@@ -1,5 +1,5 @@
 import { Field, Form, Formik, FormikProps } from "formik";
-import { listadogenerosDTO } from "../generos/generos.model";
+import { genderListDTO } from "../generos/generos.model";
 
 export default function FiltroPeliculas() {
     const valorInicial: FiltroPeliculasForm = {
@@ -9,7 +9,7 @@ export default function FiltroPeliculas() {
         enCines: false
     }
     //esto lo hacemos porque todavia no tenemos una base de datos
-    const generosL: listadogenerosDTO[] = [
+    const generosL: genderListDTO[] = [
         { id: 1, nombre: "Accion" },
         { id: 2, nombre: "Aventura" }
     ]

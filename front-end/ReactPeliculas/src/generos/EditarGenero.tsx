@@ -6,10 +6,10 @@ export default function EditarGenero(){
     return(
         <>
         <h1>Editar género</h1>
-      <FormularioGeneros modelo={{ nombre: "Valor por defecto" }}
-        onSubmit={async valores => {
+      <FormularioGeneros model={{ name: "Valor por defecto" }}
+        onSubmit={async values => {
           await new Promise(r => setTimeout(r, 100))
-          console.log(valores)
+          console.log(values)
         }}
       />
 

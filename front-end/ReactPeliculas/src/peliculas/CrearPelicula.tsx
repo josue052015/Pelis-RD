@@ -1,9 +1,9 @@
 import { cineDTO } from "../cines/cine.model";
-import { listadogenerosDTO } from "../generos/generos.model";
+import { genderListDTO } from "../generos/generos.model";
 import FormularioPeliculas from "./FormularioPeliculas";
 
 export default function CrearPelicula(){
-    const generos: listadogenerosDTO[] = [{id: 1, nombre: "Acción"},{id: 2, nombre: "Comedia"},{id: 3, nombre: "Drama"}]
+    const generos: genderListDTO[] = [{id: 1, nombre: "Acción"},{id: 2, nombre: "Comedia"},{id: 3, nombre: "Drama"}]
 
     const cines: cineDTO[] = [{id: 1, nombre: "Galeria 360"},{id: 2, nombre: "Agora"},{id: 3, nombre: "Sambil"}]
     return(

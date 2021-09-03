@@ -4,11 +4,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PeliculasAPI.ApiBehavior;
+using PeliculasAPI.Context;
 using PeliculasAPI.Controllers;
 using PeliculasAPI.Filtros;
 using System;
@@ -31,11 +34,47 @@ namespace PeliculasAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddDbContext<PeliculasDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
+
+            //services.AddCors(options =>
+            //{
+            //    var frontendURL = Configuration.GetValue<string>("frontend_url");
+            //    options.AddDefaultPolicy(builder =>
+            //    {
+            //        builder.WithOrigins(frontendURL).AllowAnyMethod().AllowAnyHeader()
+            //        .WithExposedHeaders(new string[] { "cantidadTotalRegistros" });
+            //    });
+            //});
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
             services.AddControllers(options =>
             {
                 options.Filters.Add(typeof(FiltroDeExcepcion));
+                options.Filters.Add(typeof(BadRequestParse));
+            }).ConfigureApiBehaviorOptions(BehaviorBadRequests.Parse);
+
+            #region CORS
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MainPolicy",
+                      builder =>
+                      {
+                          builder
+                                 .AllowAnyHeader()
+                                 .AllowAnyMethod()
+                                 .AllowCredentials()
+                                 .WithExposedHeaders(new string[] { "cantidadTotalRegistros" });
+
+                          //TODO: remove this line for production
+                          builder.SetIsOriginAllowed(x => true);
+                      });
             });
+
+            #endregion
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PeliculasAPI", Version = "v1" });
@@ -56,6 +95,9 @@ namespace PeliculasAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+              app.UseCors("MainPolicy");
+          //  app.UseCors();
 
             app.UseAuthentication();
 

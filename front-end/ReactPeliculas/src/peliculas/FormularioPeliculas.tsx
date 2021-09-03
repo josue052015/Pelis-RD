@@ -7,8 +7,8 @@ import FormularioFecha from "./utilidades/FormularioFecha";
 import FormularioImagen from "./utilidades/FormularioImagen";
 import Boton from "./utilidades/Boton";
 import { Link } from "react-router-dom";
-import SelectorMultiple, { selectorMultipleModel } from "./utilidades/SelectorMultiple";
-import { listadogenerosDTO } from "../generos/generos.model";
+import MultipleSelector, { selectorMultipleModel } from "./utilidades/SelectorMultiple";
+import { genderListDTO } from "../generos/generos.model";
 import { useState } from "react";
 import { cineDTO } from "../cines/cine.model";
 import TypeAheadActores from "../actores/TypeAheadActores";
@@ -55,7 +55,7 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
 
                         <div className="form-group">
                             <label>Géneros</label>
-                            <SelectorMultiple seleccionados={generosSeleccionados} noSeleccionados={generosNoSeleccionados}
+                            <MultipleSelector seleccionados={generosSeleccionados} noSeleccionados={generosNoSeleccionados}
                                 onChange={(seleccionados, noSeleccionados) => {
                                     setGenerosSeleccionados(seleccionados);
                                     setGenerosNoSeleccionados(noSeleccionados);
@@ -65,7 +65,7 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
 
                         <div className="form-group">
                             <label>Cines</label>
-                            <SelectorMultiple seleccionados={cinesSeleccionados} noSeleccionados={cinesNoSeleccionados}
+                            <MultipleSelector seleccionados={cinesSeleccionados} noSeleccionados={cinesNoSeleccionados}
                                 onChange={(seleccionados, noSeleccionados) => {
                                     setCinesSeleccionados(seleccionados);
                                     setCinesNoSeleccionados(noSeleccionados);
@@ -114,8 +114,8 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
 interface formularioPeliculasProps {
     modelo: creacionPeliculasDTO;
     onSubmit(valores: creacionPeliculasDTO, acciones: FormikHelpers<creacionPeliculasDTO>): void;
-    generosSeleccionados: listadogenerosDTO[]; //estos son datos temporales
-    generosNoSeleccionados: listadogenerosDTO[]; // estos son datos temporales
+    generosSeleccionados: genderListDTO[]; //estos son datos temporales
+    generosNoSeleccionados: genderListDTO[]; // estos son datos temporales
     cinesSeleccionados: cineDTO[];
     cinesNoSeleccionados: cineDTO[];
     actoresElegidos: actorPeliculaDTO[];

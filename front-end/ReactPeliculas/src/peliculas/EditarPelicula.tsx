@@ -1,12 +1,12 @@
 import React from "react";
 import { actorPeliculaDTO } from "../actores/actores.model";
 import { cineDTO } from "../cines/cine.model";
-import { listadogenerosDTO } from "../generos/generos.model";
+import { genderListDTO } from "../generos/generos.model";
 import FormularioPeliculas from "./FormularioPeliculas";
 
 export default function EditarPelicula() {
-    const generosSeleccionados: listadogenerosDTO[] = [{ id: 1, nombre: "Acción" }]
-    const generosNoSeleccionados: listadogenerosDTO[] = [{ id: 2, nombre: "Comedia" }, { id: 3, nombre: "Drama" }]
+    const generosSeleccionados: genderListDTO[] = [{ id: 1, nombre: "Acción" }]
+    const generosNoSeleccionados: genderListDTO[] = [{ id: 2, nombre: "Comedia" }, { id: 3, nombre: "Drama" }]
 
     const cinesSeleccionados: cineDTO[] = [{ id: 1, nombre: "Galeria 360" }]
     const cinesNoSeleccionados: cineDTO[] = [{ id: 2, nombre: "Agora" }, { id: 3, nombre: "Sambil" }]

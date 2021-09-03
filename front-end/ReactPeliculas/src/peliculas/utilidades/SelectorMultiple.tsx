@@ -1,13 +1,13 @@
 import "./SelectorMultiple.css"
 
-export default function SelectorMultiple(props: selectorMultipleProps) {
-    function seleccionar(item: selectorMultipleModel) {
-        const seleccionados = [...props.seleccionados, item]; // aqui estamos utilizando la lista de elementos que ya tenemos seleccionados y añadiendo el proximo
-        const noSeleccionados = props.noSeleccionados.filter(e => e !== item);
-        props.onChange(seleccionados, noSeleccionados);
+export default function MultipleSelector(props: selectorMultipleProps) {
+    function Select(item: selectorMultipleModel) {
+        const SelectItemsCollection = [...props.seleccionados, item]; // aqui estamos utilizando la lista de elementos que ya tenemos seleccionados y añadiendo el proximo
+        const NoSelectItemsCollection = props.noSeleccionados.filter(e => e !== item);
+        props.onChange(SelectItemsCollection, NoSelectItemsCollection);
     }
 
-    function deseleccionar(item: selectorMultipleModel) {
+    function Deselect(item: selectorMultipleModel) {
         const seleccionados = props.seleccionados.filter(e => e !== item);
         const noSeleccionados = [...props.noSeleccionados, item];
         props.onChange(seleccionados, noSeleccionados);
@@ -28,7 +28,7 @@ export default function SelectorMultiple(props: selectorMultipleProps) {
             <div className="selector-multiple">
                 <ul>
                     {props.noSeleccionados.map(item =>
-                        <li key={item.llave} onClick={() => seleccionar(item)} > {item.valor} </li>
+                        <li key={item.llave} onClick={() => Select(item)} > {item.valor} </li>
                     )}
                 </ul>
                 <div className="selector-multiple-botones">
@@ -37,7 +37,7 @@ export default function SelectorMultiple(props: selectorMultipleProps) {
                 </div>
                 <ul>
                     {props.seleccionados.map(item =>
-                        <li key={item.llave} onClick={() => deseleccionar(item)} > {item.valor} </li>
+                        <li key={item.llave} onClick={() => Deselect(item)} > {item.valor} </li>
                     )}
                 </ul>
             </div>

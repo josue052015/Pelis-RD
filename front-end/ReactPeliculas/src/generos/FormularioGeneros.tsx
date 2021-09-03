@@ -3,17 +3,18 @@ import { Formik, Field, Form, ErrorMessage, FormikProps, FormikHelpers } from "f
 import Formulario from "../peliculas/utilidades/Formulario";
 import Boton from "../peliculas/utilidades/Boton";
 import { Link } from "react-router-dom";
-import { generoscreacionDTO } from "./generos.model";
+import { genderDTO } from "./generos.model";
 
 export default function FormularioGeneros(props: formularioGenerosProps) {
   return (
     <>
-      <Formik initialValues={props.modelo}
+      <Formik initialValues={props.model}
 
         onSubmit={props.onSubmit}
 
         validationSchema={yup.object({
-          nombre: yup.string().required("Este campo es requerido").PrimeraLetraMayuscula()
+          nombre: yup.string().required("Este campo es requerido") .PrimeraLetraMayuscula()
+          .max(50,"La longitud maxima es de 50 carateres")
         })}
       >
         {/* el onsubmit significa qué hara cuando suceda el summit del formulario nota: esta nota me dio un error del diache por ponerlo al lado del formik*/}
@@ -35,6 +36,6 @@ export default function FormularioGeneros(props: formularioGenerosProps) {
 }
 
 interface formularioGenerosProps {
-  modelo: generoscreacionDTO; //el tipo de datos de modelo son las propiedades necesarias para crear un genero basicamente esto lo hacemos para que el tipo de dato que acepte sea un objeto con las propiedades como nombre, descripcion,ect. 
-  onSubmit(valores: generoscreacionDTO, accion: FormikHelpers<generoscreacionDTO>): void //aqui le estamos pasando esos dos parametros a esa funcion, uno tiene el valor de las propiedades necesarias para la creacion del genero y la otra es por si quieres inventar un poco con acciones 
+  model: genderDTO; //el tipo de datos de modelo son las propiedades necesarias para crear un genero basicamente esto lo hacemos para que el tipo de dato que acepte sea un objeto con las propiedades como nombre, descripcion,ect. 
+  onSubmit(valores: genderDTO, accion: FormikHelpers<genderDTO>): void //aqui le estamos pasando esos dos parametros a esa funcion, uno tiene el valor de las propiedades necesarias para la creacion del genero y la otra es por si quieres inventar un poco con acciones 
 }

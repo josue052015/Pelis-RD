@@ -1,19 +1,34 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
+import { urlGeneros } from "../peliculas/utilidades/endPoints";
+import ShowErrorList from "../peliculas/utilidades/ShowErrorList";
 import ValidacionesMayuscula from "../Validaciones";
 import FormularioGeneros from "./FormularioGeneros";
+import { genderDTO } from "./generos.model";
 
 ValidacionesMayuscula();
 
 export default function CrearGenero() {
-  const history = useHistory();
+  
+  const [errorList, setErrorList] = useState<string[]>([]);
+  
+   const history = useHistory(); 
+  async function createGender(gender:genderDTO) {
+    try {
+      await axios.post(urlGeneros,gender);
+      history.push("/generos")
+    } catch (error) {
+    setErrorList(error.response.data);
+    }
+  }
   return (
     <>
       <h1>Crear género</h1>
-      <FormularioGeneros modelo={{ nombre: "" }}
-        onSubmit={async valores => {
-          await new Promise(r => setTimeout(r, 3000))
-          console.log(valores)
+      <ShowErrorList errors = {errorList}/>
+      <FormularioGeneros model={{ name: "" }}
+        onSubmit={async values => {
+       await createGender(values);
         }}
       />
       {/*   <Boton onClick = {() => history.push("/generos")}>Guardar</Boton> este es el ejemplo viejo de como usar el componente boton*/}
