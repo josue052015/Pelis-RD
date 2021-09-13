@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PeliculasAPI.DTOs
 {
-    public class GeneroDTO
+    public class GeneroDTO : BaseDTO
     {
         public int Id { get; set; }
 

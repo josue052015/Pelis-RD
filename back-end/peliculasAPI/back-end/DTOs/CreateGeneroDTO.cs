@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PeliculasAPI.DTOs
 {
-    public class CreateGeneroDTO
+    public class CreateGeneroDTO : BaseDTO
     {
 
         public string Nombre { get; set; }

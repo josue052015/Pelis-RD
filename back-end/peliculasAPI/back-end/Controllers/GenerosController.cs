@@ -55,31 +55,57 @@ namespace PeliculasAPI.Controllers
 
 
         [HttpGet("{Id:int}")] 
-        public async Task<ActionResult<Genero>> Get(int Id)
+        public async Task<ActionResult<GeneroDTO>> Get(int Id)
         {
-            throw new  NotImplementedException();
+            var gender = await _context.Generos.FirstOrDefaultAsync(x => x.Id == Id);
+            if (gender == null) return NotFound();
+
+            return mapper.Map<GeneroDTO>(gender);
+
         }
 
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] CreateGeneroDTO createGeneroDTO)
         {
-            var genero = mapper.Map<Genero>(createGeneroDTO);
-            _context.Add(genero);
+            var gender = mapper.Map<Genero>(createGeneroDTO);
+            _context.Add(gender);
             await _context.SaveChangesAsync();
             return NoContent();
         }
 
-        [HttpPut]
-        public ActionResult Put([FromBody] Genero genero)
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult> Put(int id, CreateGeneroDTO createGeneroDTO)
         {
-            throw new NotImplementedException();
+            var gender = await _context.Generos.FirstOrDefaultAsync(x => x.Id == id);
+            if (gender == null) return NoContent();
+
+            gender = mapper.Map(createGeneroDTO, gender);
+
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
 
-        [HttpDelete]
-        public ActionResult Delete()
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id, GeneroDTO generoDTO)
         {
-            throw new NotImplementedException();
+            var gender = await _context.Generos.FirstOrDefaultAsync(x => x.Id == id);
+            if (gender == null) return NotFound();
+            _context.Remove(gender);
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
+
+        //[HttpDelete("{id:int}")]
+        //public async Task<ActionResult> Delete(int id)
+        //{
+        //    var exist = await _context.Generos.AnyAsync(x => x.Id == id);
+        //    if (!exist) return NotFound();
+
+        //    _context.Remove(new Genero() { Id = id });
+        //    await _context.SaveChangesAsync();
+        //    return NoContent();
+        //}
 
     }
 }

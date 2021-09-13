@@ -26,7 +26,7 @@ export default function CrearGenero() {
     <>
       <h1>Crear género</h1>
       <ShowErrorList errors = {errorList}/>
-      <FormularioGeneros model={{ name: "" }}
+      <FormularioGeneros model={{ nombre: "" }}
         onSubmit={async values => {
        await createGender(values);
         }}

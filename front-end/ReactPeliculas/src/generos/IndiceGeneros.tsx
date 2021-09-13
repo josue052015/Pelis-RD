@@ -14,8 +14,10 @@ export default function IndiceGeneros() {
     const [page, setPage] = useState(1);
 
   useEffect(() => {
+    loadData();
+  }, [page, pageRecords,genderList])
 
-
+  function loadData(){
     axios.get(urlGeneros, {
       params: { page, pageRecords }
     })
@@ -26,8 +28,16 @@ export default function IndiceGeneros() {
           setGenderList(response.data);
 
         })
+  }
 
-  }, [page, pageRecords])
+  async function deleteGender(id: number){
+    try {
+     await axios.delete(`${urlGeneros}/${id}`);
+     loadData();
+    } catch (error:any) {
+      console.log(error.response.data);
+    }
+  }
   
   return (
     <>
@@ -67,10 +77,10 @@ export default function IndiceGeneros() {
           <tbody>
             {genderList?.map(gender => <tr key={gender.id}>
               <td>
-                <Link className="btn btn-success" to={`/generos/${gender.id}`}>
+                <Link className="btn btn-success" to={`/generos/editar/${gender.id}`}>
                   Editar
                 </Link>
-                <button className="btn btn-danger">Borrar</button>
+                <button className="btn btn-danger" onClick = {() => deleteGender(gender.id)}>Borrar</button>
               </td>
               <td>
                 {gender.nombre}

@@ -7,11 +7,18 @@ using System.Threading.Tasks;
 
 namespace PeliculasAPI.Context
 {
-    public class PeliculasDbContext : DbContext
+    public class PeliculasDbContext : BaseDbContext
     {
-        public PeliculasDbContext(DbContextOptions options) : base(options)
+        public PeliculasDbContext(DbContextOptions<PeliculasDbContext> options) : base(options)
         {
         }
         public DbSet<Genero> Generos { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
+

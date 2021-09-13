@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PeliculasAPI.Entidades
 {
-    public class Genero 
+    public class Genero : Base 
     {
         public int Id { get; set; }
 

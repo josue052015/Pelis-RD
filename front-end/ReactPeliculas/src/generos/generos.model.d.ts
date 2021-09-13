@@ -1,7 +1,7 @@
 import { number } from "yup/lib/locale"
 
 export interface genderDTO{ //con esto representamos las propiedades necesarias para crear un genero
-    name: string;
+    nombre: string;
 }
 
 export interface genderListDTO{
