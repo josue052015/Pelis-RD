@@ -18,7 +18,7 @@ export default function CrearGenero() {
     try {
       await axios.post(urlGeneros,gender);
       history.push("/generos")
-    } catch (error) {
+    } catch (error:any) {
     setErrorList(error.response.data);
     }
   }

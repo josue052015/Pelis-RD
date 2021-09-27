@@ -25,7 +25,7 @@ const history = useHistory();
     try{
       axios.put(`${urlGeneros}/${id}`, gender);
     }
-    catch(error){
+    catch(error:any){
       setErrors(error.response.data);
     }
   }
