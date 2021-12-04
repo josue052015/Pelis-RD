@@ -31,12 +31,6 @@ namespace PeliculasAPI.Context
                     {
                         case EntityState.Added:
 
-                            //if (entry.Entity.Id > 0)
-                            //{
-                            //    entry.State = EntityState.Modified;
-                            //    goto case EntityState.Modified;
-                            //}
-
                             entry.Entity.Deleted = false;
             
                             break;

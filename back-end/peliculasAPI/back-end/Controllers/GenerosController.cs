@@ -87,7 +87,7 @@ namespace PeliculasAPI.Controllers
 
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult> Delete(int id, GeneroDTO generoDTO)
+        public async Task<ActionResult> Delete(int id)
         {
             var gender = await _context.Generos.FirstOrDefaultAsync(x => x.Id == id);
             if (gender == null) return NotFound();

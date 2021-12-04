@@ -5,6 +5,7 @@ import ListadoGenerico from "../peliculas/ListadoGenerico";
 import { urlGeneros } from "../peliculas/utilidades/endPoints";
 import PaginationComponent from "../peliculas/utilidades/PaginationComponent";
 import { genderDTO, genderListDTO } from "./generos.model";
+import confirm from "../peliculas/utilidades/confirm";
 
 export default function IndiceGeneros() {
 
@@ -30,8 +31,9 @@ export default function IndiceGeneros() {
         })
   }
 
-  async function deleteGender(id: number){
+  async function deleteGender(id: any){
     try {
+     
      await axios.delete(`${urlGeneros}/${id}`);
      loadData();
     } catch (error:any) {
@@ -80,7 +82,7 @@ export default function IndiceGeneros() {
                 <Link className="btn btn-success" to={`/generos/editar/${gender.id}`}>
                   Editar
                 </Link>
-                <button className="btn btn-danger" onClick = {() => deleteGender(gender.id)}>Borrar</button>
+                <button className="btn btn-danger" onClick = {() => confirm(() => deleteGender(gender.id))}>Borrar</button>
               </td>
               <td>
                 {gender.nombre}
